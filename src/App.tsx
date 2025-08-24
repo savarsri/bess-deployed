@@ -19,6 +19,7 @@ import {
   Loader2,
 } from "lucide-react";
 
+import { PopupModal } from "react-calendly";
 import { ToastContainer, toast } from "react-toastify";
 
 import logo from "./assets/logo.png";
@@ -36,6 +37,15 @@ function App() {
   });
   const [loading, setLoading] = useState(false);
   const [subscribeEmail, setSubscribeEmail] = useState("");
+  const [calendlyModal, setCalendlyModal] = useState(false);
+
+  const pageSettings = {
+    backgroundColor: "ffffff", // white background
+    hideEventTypeDetails: false,
+    hideLandingPageDetails: false,
+    primaryColor: "FF6A39", // orange buttons / accents
+    textColor: "4d5055", // neutral dark gray for body text
+  };
 
   const services = [
     {
@@ -218,6 +228,18 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <ToastContainer />
+      <PopupModal
+        url="https://calendly.com/tech-bessstrategies"
+        pageSettings={pageSettings}
+        // prefill={this.props.prefill}
+        onModalClose={() => setCalendlyModal(false)}
+        open={calendlyModal}
+        /*
+         * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+         * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+         */
+        rootElement={document.getElementById("root")!}
+      />
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -359,7 +381,7 @@ function App() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => setCalendlyModal(true)}
                   className="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
                 >
                   <Calendar className="h-5 w-5" />
