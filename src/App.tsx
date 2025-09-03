@@ -18,6 +18,7 @@ import {
   Award,
   Loader2,
 } from "lucide-react";
+import Countdown from "./components/Countdown"
 
 import { PopupModal } from "react-calendly";
 import { ToastContainer, toast } from "react-toastify";
@@ -226,6 +227,7 @@ function App() {
   };
 
   return (
+    <Countdown targetDate="2025-09-08T00:00:00-07:00">
     <div className="min-h-screen bg-white">
       <ToastContainer />
       <PopupModal
@@ -1040,6 +1042,7 @@ function App() {
         </div>
       </footer>
     </div>
+    </Countdown>
   );
 }
 

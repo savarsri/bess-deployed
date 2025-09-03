@@ -167,3 +167,15 @@ a:focus {
 ::-webkit-scrollbar-thumb:hover {
   background: #e55a32;
 }
+
+.text-primary-orange{
+  color: #FF6A39;
+}
+
+.text-primary-purple{
+  color: #9678D3;
+}
+
+.bg-primary-purple-dark{
+  background-color: #151a23;
+}
