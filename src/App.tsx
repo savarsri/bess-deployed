@@ -228,7 +228,7 @@ function App() {
   };
 
   return (
-    <Countdown targetDate="2025-09-08T00:00:00-07:00">
+    <Countdown targetDate="2025-09-09T09:00:00-07:00">
       <div className="min-h-screen bg-white">
         <ToastContainer />
         <PopupModal
