@@ -25,6 +25,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import logo from "./assets/logo.png";
 import Services from "./components/Services";
+import NewsroomSection from "./components/Newsroom";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -260,11 +261,11 @@ function App() {
               <div className="hidden md:flex space-x-8">
                 {[
                   "Home",
+                  "Contact",
                   "Services",
-                  "Case Studies",
                   "Team",
                   "Company",
-                  "Contact",
+                  "Newsroom",
                   "FAQs",
                 ].map((item) => (
                   <button
@@ -313,11 +314,11 @@ function App() {
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {[
                   "Home",
+                  "Contact",
                   "Services",
-                  "Case Studies",
                   "Team",
                   "Company",
-                  "Contact",
+                  "Newsroom",
                   "FAQs",
                 ].map((item) => (
                   <button
@@ -695,10 +696,13 @@ function App() {
           </div>
         </section> */}
 
-        <Services setCalendlyModal={setCalendlyModal} scrollToSection={scrollToSection} />
+        <Services
+          setCalendlyModal={setCalendlyModal}
+          scrollToSection={scrollToSection}
+        />
 
         {/* Case Studies Section */}
-        <section id="case-studies" className="py-20 bg-gray-50">
+        {/* <section id="case-studies" className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
@@ -742,10 +746,10 @@ function App() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* AI Battery Agent Section */}
-        <section className="py-20 bg-gradient-to-r from-purple-600 to-orange-500">
+        {/* <section className="py-20 bg-gradient-to-r from-purple-600 to-orange-500">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-3xl mx-auto">
               <Zap className="h-16 w-16 text-white mx-auto mb-6" />
@@ -772,7 +776,7 @@ function App() {
               </button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Team Section */}
         {/* Network Section */}
@@ -807,48 +811,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        {/* <section id="team" className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
-                Meet Our <span className="text-orange-500">Expert Team</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Industry veterans with decades of combined experience in energy
-                storage, grid integration, and project development.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all"
-                >
-                  <div className="h-64 bg-gradient-to-br from-purple-100 to-orange-100 flex items-center justify-center">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
-                    />
-                  </div>
-                  <div className="p-6 text-center">
-                    <h3 className="text-xl font-semibold text-purple-700 mb-2">
-                      {member.name}
-                    </h3>
-                    <p className="text-orange-500 font-medium mb-3">
-                      {member.title}
-                    </p>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section> */}
 
         {/* Company Section */}
         <section id="company" className="py-20 bg-gray-50">
@@ -924,6 +886,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <NewsroomSection />
 
         {/* FAQs Section */}
         <section id="faqs" className="py-20 bg-gray-50">
@@ -1038,34 +1002,34 @@ function App() {
                 <ul className="space-y-2 text-purple-200">
                   <li>
                     <a
-                      href="#"
+                      href="#services"
                       className="hover:text-orange-400 transition-colors"
                     >
-                      Feasibility Studies
+                      Compliance & Certifications
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#services"
                       className="hover:text-orange-400 transition-colors"
                     >
-                      Incentive Advisory
+                      Advisory Packages
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#services"
                       className="hover:text-orange-400 transition-colors"
                     >
-                      Project Strategy
+                      Market Access - Brag Tech
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#services"
                       className="hover:text-orange-400 transition-colors"
                     >
-                      Risk Mitigation
+                      Owner's Rep & Advisory
                     </a>
                   </li>
                 </ul>
@@ -1076,7 +1040,7 @@ function App() {
                 <ul className="space-y-2 text-purple-200">
                   <li>
                     <a
-                      href="#"
+                      href="#company"
                       className="hover:text-orange-400 transition-colors"
                     >
                       About Us
@@ -1084,23 +1048,23 @@ function App() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#team"
                       className="hover:text-orange-400 transition-colors"
                     >
                       Team
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a
                       href="#"
                       className="hover:text-orange-400 transition-colors"
                     >
                       Careers
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a
-                      href="#"
+                      href="#newsroom"
                       className="hover:text-orange-400 transition-colors"
                     >
                       Press
