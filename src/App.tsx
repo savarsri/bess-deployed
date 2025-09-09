@@ -18,12 +18,13 @@ import {
   Award,
   Loader2,
 } from "lucide-react";
-import Countdown from "./components/Countdown"
+import Countdown from "./components/Countdown";
 
 import { PopupModal } from "react-calendly";
 import { ToastContainer, toast } from "react-toastify";
 
 import logo from "./assets/logo.png";
+import Services from "./components/Services";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -264,6 +265,7 @@ function App() {
                   "Team",
                   "Company",
                   "Contact",
+                  "FAQs",
                 ].map((item) => (
                   <button
                     key={item}
@@ -316,6 +318,7 @@ function App() {
                   "Team",
                   "Company",
                   "Contact",
+                  "FAQs",
                 ].map((item) => (
                   <button
                     key={item}
@@ -345,61 +348,65 @@ function App() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Content */}
               <div>
+                {/* Headline 1 */}
                 <h1 className="text-4xl md:text-6xl font-bold text-purple-700 mb-6 leading-tight">
-                  Is your battery box getting
-                  <span className="text-orange-500"> dumb and dumber?</span>
+                  Energy Storage,{" "}
+                  <span className="text-orange-500">
+                    Without the Headaches.
+                  </span>
                 </h1>
-                <div className="space-y-4 mb-8 text-lg text-gray-700">
-                  <p className="flex items-start space-x-3">
-                    <AlertTriangle className="h-6 w-6 text-orange-500 mt-1 flex-shrink-0" />
-                    <span>
-                      Are you navigating problems with contracts from bankrupt
-                      battery companies?
-                    </span>
-                  </p>
-                  <p className="flex items-start space-x-3">
-                    <AlertTriangle className="h-6 w-6 text-orange-500 mt-1 flex-shrink-0" />
-                    <span>Has your BESS provider ghosted you?</span>
-                  </p>
-                  <p className="flex items-start space-x-3">
-                    <AlertTriangle className="h-6 w-6 text-orange-500 mt-1 flex-shrink-0" />
-                    <span>
-                      Struggling with lifetime risks that threaten project
-                      financial success?
-                    </span>
-                  </p>
-                </div>
 
-                <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-orange-500 mb-8">
-                  <h3 className="text-xl font-semibold text-purple-700 mb-2">
-                    We're Here to Help
-                  </h3>
-                  <p className="text-gray-700">
-                    BESS Strategies provides independent, expert guidance to
-                    businesses, EPCs, and developers navigating the complexities
-                    of battery energy storage systems.
-                  </p>
-                </div>
+                {/* Subline Pain Points */}
+                <p className="text-lg text-gray-700 mb-6">
+                  We know the challenges are real: underperforming systems,
+                  interconnection delays, missed certifications, safety
+                  concerns, and improper sizing.{" "}
+                  <span className="font-semibold">Sound familiar?</span>
+                </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                {/* Headline 2 */}
+                <h2 className="text-2xl md:text-3xl font-semibold text-purple-700 mb-4">
+                  Your Independent Advisor in the Energy Storage Journey.
+                </h2>
+
+                {/* Supporting Copy */}
+                <p className="text-lg text-gray-700 mb-8">
+                  BESS Strategies bridges the gap between problem owners and
+                  solution providers. We’re not here to sell you hardware — we
+                  ensure you get the right system, the right partners, and the
+                  right financial strategy. Our role is to save you time, reduce
+                  your risks, and maximize your ROI.
+                </p>
+
+                {/* Call to Action Buttons */}
+                <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+                  <button
+                    onClick={() => scrollToSection("contact")}
+                    className="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
+                  >
+                    <span>Find Your Solution</span>
+                  </button>
+
+                  {/* <button
+                    onClick={() => scrollToSection("vendors")}
+                    className="border-2 border-purple-700 text-purple-700 px-8 py-4 rounded-full font-semibold hover:bg-purple-700 hover:text-white transition-all"
+                  >
+                    Join the BESS Network
+                  </button> */}
+
                   <button
                     onClick={() => setCalendlyModal(true)}
-                    className="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
+                    className="bg-white border-2 border-orange-500 text-orange-500 px-8 py-4 rounded-full font-semibold hover:bg-orange-500 hover:text-white transition-all flex items-center justify-center space-x-2"
                   >
                     <Calendar className="h-5 w-5" />
                     <span>Schedule Consultation</span>
                   </button>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="border-2 border-purple-700 text-purple-700 px-8 py-4 rounded-full font-semibold hover:bg-purple-700 hover:text-white transition-all flex items-center justify-center space-x-2"
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="h-5 w-5" />
-                  </button>
                 </div>
               </div>
 
+              {/* Right Image Section */}
               <div className="relative">
                 <img
                   src="https://images.pexels.com/photos/52608/pexels-photo-52608.jpeg"
@@ -422,8 +429,197 @@ function App() {
           </div>
         </section>
 
+        {/* Contact Section */}
+        <section id="contact" className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
+                Let's <span className="text-orange-500">Get Started</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Ready to solve your battery energy storage challenges? Schedule
+                a consultation or send us your inquiry.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Contact Form */}
+              <div className="bg-gray-50 p-8 rounded-xl">
+                <h3 className="text-2xl font-semibold text-purple-700 mb-6">
+                  Tell Us More About You — Let’s Get Connected.
+                </h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name + Company */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your Name"
+                      required
+                      className="px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                    />
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      placeholder="Company Name"
+                      className="px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                    />
+                  </div>
+
+                  {/* Email + Phone */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Email Address"
+                      required
+                      className="px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="Phone Number"
+                      className="px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                    />
+                  </div>
+
+                  {/* Role Selection */}
+                  <select
+                    name="service_of_interest"
+                    value={formData.service_of_interest}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                    required
+                  >
+                    <option value="">Select Your Role</option>
+                    <option value="site_owner">Site Owner</option>
+                    <option value="vendor">Vendor</option>
+                    <option value="consultant">Consultant</option>
+                  </select>
+
+                  {/* Short Textbox */}
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={4}
+                    placeholder="Describe your challenge or interest..."
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all resize-none"
+                  />
+
+                  {/* CTA Button */}
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className={`w-full px-6 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors
+        ${
+          loading
+            ? "bg-orange-400 cursor-not-allowed"
+            : "bg-orange-500 hover:bg-orange-600 text-white"
+        }`}
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Mail className="h-5 w-5" />
+                        <span>Connect Me</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+              </div>
+
+              {/* Contact Information */}
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-2xl font-semibold text-purple-700 mb-6">
+                    Get in Touch
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <Phone className="h-5 w-5 text-orange-500" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-purple-700">Phone</p>
+                        {/* <p className="text-gray-600">+1 (555) 123-4567</p> */}
+                        <p className="text-gray-600">+1 (510) 320-8334</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center space-x-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <Mail className="h-5 w-5 text-orange-500" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-purple-700">Email</p>
+                        <p className="text-gray-600">
+                          sales@bessstrategies.com
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center space-x-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <MapPin className="h-5 w-5 text-orange-500" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-purple-700">Office</p>
+                        <p className="text-gray-600">
+                          5178 Mowry Avenue, Fremont, CA 94538
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-purple-50 to-orange-50 p-6 rounded-xl">
+                  <h4 className="text-lg font-semibold text-purple-700 mb-3">
+                    Upcoming Events
+                  </h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <Calendar className="h-5 w-5 text-orange-500" />
+                      <div>
+                        <p className="font-medium text-purple-700">RE+ 2025</p>
+                        <p className="text-sm text-gray-600">
+                          Visit us at booth #1234
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Calendar className="h-5 w-5 text-orange-500" />
+                      <div>
+                        <p className="font-medium text-purple-700">
+                          Battery Show
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Leading industry discussions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Services Section */}
-        <section id="services" className="py-20 bg-white">
+        {/* <section id="services" className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
@@ -497,7 +693,9 @@ function App() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
+
+        <Services setCalendlyModal={setCalendlyModal} scrollToSection={scrollToSection} />
 
         {/* Case Studies Section */}
         <section id="case-studies" className="py-20 bg-gray-50">
@@ -577,7 +775,40 @@ function App() {
         </section>
 
         {/* Team Section */}
+        {/* Network Section */}
         <section id="team" className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-6">
+              Our <span className="text-orange-500">Network of Experts</span>
+            </h2>
+            <div className="relative bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl shadow-lg p-10 md:p-14">
+              <svg
+                className="absolute top-6 left-6 w-12 h-12 text-purple-300 opacity-30"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M7.17 6A5.17 5.17 0 0 0 2 11.17V18a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6.83A5.17 5.17 0 0 0 7.17 6Zm9.66 0A5.17 5.17 0 0 0 12 11.17V18a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6.83A5.17 5.17 0 0 0 16.83 6Z" />
+              </svg>
+              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed relative z-10">
+                “
+                <span className="font-medium text-purple-700">
+                  BESS Strategies
+                </span>{" "}
+                brings together a network of seasoned professionals—regulatory
+                advisors, technical specialists, and financial strategists—who
+                have guided projects across the U.S. and global markets. Our
+                strength lies in{" "}
+                <span className="font-semibold text-orange-500">
+                  collaboration
+                </span>
+                , where each project benefits from a pool of expertise rather
+                than a single perspective.”
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* <section id="team" className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
@@ -617,293 +848,171 @@ function App() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Company Section */}
         <section id="company" className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-12 text-center">
+              About <span className="text-orange-500">BESS Strategies</span>
+            </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              {/* Mission & Vision - Left */}
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-6">
-                  About <span className="text-orange-500">BESS Strategies</span>
-                </h2>
-                <div className="space-y-6 text-gray-700">
-                  <p className="text-lg">
-                    <strong className="text-purple-700">Mission:</strong> To
-                    empower businesses, EPCs, and developers with expert
-                    guidance in battery energy storage systems (BESS), helping
-                    them identify and assess lifetime risks to the financial
-                    success of their projects.
-                  </p>
-                  <p className="text-lg">
-                    <strong className="text-purple-700">Vision:</strong> To be
-                    the leading consulting partner for commercial & industrial
-                    (C&I) businesses and EPC contractors navigating the
-                    complexities of energy storage.
-                  </p>
-                  <div className="grid grid-cols-2 gap-4 pt-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-500">
-                        50+
-                      </div>
-                      <p className="text-sm text-gray-600">
-                        Projects Completed
-                      </p>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-500">
-                        $100M+
-                      </div>
-                      <p className="text-sm text-gray-600">Value Delivered</p>
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-2xl font-semibold text-purple-700 mb-4">
+                  Mission & Vision
+                </h3>
+                <p className="text-lg text-justify">
+                  At <strong>BESS Strategies</strong>, our mission is to be the
+                  trusted, independent advisor for organizations deploying
+                  battery energy storage systems. We believe energy storage is
+                  the backbone of the clean energy transition, but the journey
+                  from design to deployment is often clouded by compliance
+                  hurdles, regulatory delays, and technical uncertainties.
+                </p>
+                <p className="text-lg font-medium text-gray-800 mt-4">
+                  Our vision is clear:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-lg mt-2">
+                  <li>
+                    To simplify the complexity of energy storage projects.
+                  </li>
+                  <li>To open market access for vendors and project owners.</li>
+                  <li>
+                    To ensure every system is not just installed, but fully
+                    certified, reliable, and future-ready.
+                  </li>
+                </ul>
               </div>
 
-              <div className="space-y-6">
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-semibold text-purple-700 mb-3">
-                    Careers
-                  </h3>
-                  <p className="text-gray-600">
-                    Join our growing team of energy storage experts and help
-                    shape the future of clean energy.
-                  </p>
-                  <button className="mt-3 text-orange-500 font-semibold hover:text-orange-600 transition-colors">
-                    View Opportunities →
-                  </button>
-                </div>
-
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-semibold text-purple-700 mb-3">
-                    Press Room
-                  </h3>
-                  <p className="text-gray-600">
-                    Latest news, press releases, and industry insights from BESS
-                    Strategies.
-                  </p>
-                  <button className="mt-3 text-orange-500 font-semibold hover:text-orange-600 transition-colors">
-                    Read Latest News →
-                  </button>
-                </div>
-
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-semibold text-purple-700 mb-3">
-                    Vendor Information
-                  </h3>
-                  <p className="text-gray-600">
-                    Information for technology providers and partners looking to
-                    work with us.
-                  </p>
-                  <button className="mt-3 text-orange-500 font-semibold hover:text-orange-600 transition-colors">
-                    Partner With Us →
-                  </button>
-                </div>
+              {/* Our Approach - Right */}
+              <div>
+                <h3 className="text-2xl font-semibold text-purple-700 mb-4">
+                  Our Approach
+                </h3>
+                <p className="text-lg text-justify">
+                  The BESS sector demands more than technology—it demands
+                  navigation through a maze of regulations, certifications, and
+                  operational risks. That’s where we step in.
+                </p>
+                <p className="text-lg mt-4 text-justify">
+                  We work hand-in-hand with system owners, developers, and
+                  vendors to:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-lg mt-2">
+                  <li>
+                    <strong>Decode compliance & regulations:</strong> from fire
+                    marshal approvals to interconnection standards.
+                  </li>
+                  <li>
+                    <strong>Streamline certifications:</strong> ensuring smooth
+                    paths through testing, UL, and regional authority
+                    requirements.
+                  </li>
+                  <li>
+                    <strong>Bridge market gaps:</strong> connecting solution
+                    providers with untapped opportunities and customers.
+                  </li>
+                </ul>
+                <p className="text-lg mt-4 text-justify">
+                  We are not here to sell hardware. We are here to make your
+                  storage project succeed—on time, on budget, and with
+                  confidence.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
-                Let's <span className="text-orange-500">Get Started</span>
+        {/* FAQs Section */}
+        <section id="faqs" className="py-20 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Heading */}
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-purple-700">
+                Frequently Asked{" "}
+                <span className="text-orange-500">Questions</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Ready to solve your battery energy storage challenges? Schedule
-                a consultation or send us your inquiry.
+              <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                Everything you need to know about how BESS Strategies works with
+                owners, vendors, and partners.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <div className="bg-gray-50 p-8 rounded-xl">
-                <h3 className="text-2xl font-semibold text-purple-700 mb-6">
-                  Send Us a Message
-                </h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your Name"
-                      required
-                      className="px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="Email Address"
-                      required
-                      className="px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      placeholder="Company Name"
-                      className="px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
-                    />
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="Phone Number"
-                      className="px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
-                    />
-                  </div>
-                  <select
-                    name="service_of_interest"
-                    value={formData.service_of_interest}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
-                  >
-                    <option value="">Select Service of Interest</option>
-                    <option value="feasibility">
-                      Feasibility/Bankability Studies
-                    </option>
-                    <option value="incentive">Incentive Advisory</option>
-                    <option value="strategy">Project Strategy</option>
-                    <option value="epc">EPC Introductions</option>
-                    <option value="vendor">Vendor Evaluations</option>
-                    <option value="risk">Risk Mitigation</option>
-                    <option value="other">Other</option>
-                  </select>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    placeholder="Tell us about your project or challenge..."
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all resize-none"
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className={`w-full px-6 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors
-          ${
-            loading
-              ? "bg-orange-400 cursor-not-allowed"
-              : "bg-orange-500 hover:bg-orange-600 text-white"
-          }`}
-                  >
-                    {loading ? (
-                      <>
-                        <Loader2 className="h-5 w-5 animate-spin" />
-                        <span>Sending...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Mail className="h-5 w-5" />
-                        <span>Send Message</span>
-                      </>
-                    )}
-                  </button>
-                </form>
-              </div>
-
-              {/* Contact Information */}
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-2xl font-semibold text-purple-700 mb-6">
-                    Get in Touch
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                        <Phone className="h-5 w-5 text-orange-500" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-purple-700">Phone</p>
-                        <p className="text-gray-600">+1 (555) 123-4567</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                        <Mail className="h-5 w-5 text-orange-500" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-purple-700">Email</p>
-                        <p className="text-gray-600">info@bessstrategies.com</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                        <MapPin className="h-5 w-5 text-orange-500" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-purple-700">Office</p>
-                        <p className="text-gray-600">Los Angeles, CA</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-br from-purple-50 to-orange-50 p-6 rounded-xl">
-                  <h4 className="text-lg font-semibold text-purple-700 mb-3">
-                    Upcoming Events
-                  </h4>
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <Calendar className="h-5 w-5 text-orange-500" />
-                      <div>
-                        <p className="font-medium text-purple-700">RE+ 2025</p>
-                        <p className="text-sm text-gray-600">
-                          Visit us at booth #1234
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Calendar className="h-5 w-5 text-orange-500" />
-                      <div>
-                        <p className="font-medium text-purple-700">
-                          Battery Show
-                        </p>
-                        <p className="text-sm text-gray-600">
-                          Leading industry discussions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-purple-700 text-white p-6 rounded-xl">
-                  <h4 className="text-lg font-semibold mb-3">
-                    Newsletter Signup
-                  </h4>
-                  <p className="text-purple-100 mb-4">
-                    Stay updated on industry trends and insights
-                  </p>
-                  <div className="flex space-x-2">
-                    <input
-                      type="email"
-                      placeholder="Enter email"
-                      value={subscribeEmail}
-                      onChange={(e) => setSubscribeEmail(e.target.value)}
-                      className="flex-1 px-3 py-2 rounded bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-orange-400"
-                    />
-                    <button
-                      onClick={handleSubscribeSubmit}
-                      className="bg-orange-500 px-4 py-2 rounded font-semibold hover:bg-orange-600 transition-colors"
-                    >
-                      Subscribe
-                    </button>
-                  </div>
-                </div>
-              </div>
+            {/* FAQ Accordion */}
+            <div className="space-y-4">
+              {[
+                {
+                  q: "Are you vendor-neutral?",
+                  a: "Yes. We don’t sell hardware or take reseller margins. Our role is to align incentives and keep score.",
+                },
+                {
+                  q: "Do you replace the engineer of record?",
+                  a: "No. We coordinate scope, evidence, and risk so the EOR can stamp with confidence.",
+                },
+                {
+                  q: "Can you guarantee ITC eligibility or interconnection approval?",
+                  a: "No. We guide the process and evidence. Approvals rest with agencies and utilities.",
+                },
+                {
+                  q: "Do you work with tribal entities and public sector owners?",
+                  a: "Yes. We tailor procurement, compliance, and engagement to AHJ requirements and community priorities.",
+                },
+                {
+                  q: "Do you do detailed design or PE stamping?",
+                  a: "No. We collaborate with your design team and EOR.",
+                },
+                {
+                  q: "What geographies do you cover?",
+                  a: "Primarily U.S.; remote support globally where codes and language permit.",
+                },
+                {
+                  q: "What if my project is at idea stage?",
+                  a: "Start with a Feasibility & Options Brief to right-size and clarify path.",
+                },
+                {
+                  q: "How do you charge?",
+                  a: "Fixed scope or retainer with defined outputs and cadence.",
+                },
+                {
+                  q: "Do you have case studies?",
+                  a: "Not yet. We focus on transparent, verifiable deliverables and references when available.",
+                },
+                {
+                  q: "Do you offer project-based packages?",
+                  a: "Yes, see our Advisory Packages.",
+                },
+                {
+                  q: "Do vendors pay for membership?",
+                  a: "Yes, see our Membership Tiers.",
+                },
+                {
+                  q: "How does Brag Tech choose who to feature?",
+                  a: "We assess credibility, clarity of offering, and fit for our audience. Quality over volume.",
+                },
+                {
+                  q: "Will Brag Tech do paid ads or endorsements?",
+                  a: "No paid endorsements. We prioritize earned media and factual positioning.",
+                },
+                {
+                  q: "How do you handle confidentiality?",
+                  a: "We sign NDAs and maintain strict separation between owner and vendor data.",
+                },
+              ].map((faq, index) => (
+                <details
+                  key={index}
+                  className="group bg-white rounded-xl shadow-md p-6 transition-all hover:shadow-lg"
+                >
+                  <summary className="flex justify-between items-center cursor-pointer text-lg font-semibold text-purple-700">
+                    {faq.q}
+                    <span className="ml-4 text-orange-500 group-open:rotate-180 transition-transform">
+                      ▼
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-gray-600 leading-relaxed">{faq.a}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>
