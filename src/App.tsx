@@ -597,7 +597,7 @@ function App() {
                       <div>
                         <p className="font-medium text-purple-700">RE+ 2025</p>
                         <p className="text-sm text-gray-600">
-                          Visit us at booth #1234
+                          Visit us at booth
                         </p>
                       </div>
                     </div>
