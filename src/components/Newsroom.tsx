@@ -11,11 +11,11 @@ const newsItems = [
     title: "ITC Energy Storage Credit Extended Through 2033 — New FEOC Caps Introduced.",
     image: imgITC,
   },
-  {
-    id: 2,
-    title: "Powin Energy Files for Bankruptcy — Impact on Supply Chains.",
-    image: imgMoney,
-  },
+  // {
+  //   id: 2,
+  //   title: "Powin Energy Files for Bankruptcy — Impact on Supply Chains.",
+  //   image: imgMoney,
+  // },
   {
     id: 3,
     title: "California Fire Marshall Updates BESS Safety Certification Guidelines.",
