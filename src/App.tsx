@@ -18,12 +18,11 @@ import {
   Award,
   Loader2,
 } from "lucide-react";
-import Countdown from "./components/Countdown";
-
 import { PopupModal } from "react-calendly";
 import { ToastContainer, toast } from "react-toastify";
 
 import logo from "./assets/logo.png";
+import imgHome from "./assets/img-home.webp";
 import Services from "./components/Services";
 import NewsroomSection from "./components/Newsroom";
 
@@ -39,7 +38,6 @@ function App() {
     service_of_interest: "",
   });
   const [loading, setLoading] = useState(false);
-  const [subscribeEmail, setSubscribeEmail] = useState("");
   const [calendlyModal, setCalendlyModal] = useState(false);
 
   const pageSettings = {
@@ -49,95 +47,6 @@ function App() {
     primaryColor: "FF6A39", // orange buttons / accents
     textColor: "4d5055", // neutral dark gray for body text
   };
-
-  const services = [
-    {
-      title: "Feasibility/Bankability Studies",
-      description:
-        "Comprehensive analysis to determine project viability and secure financing",
-      icon: FileText,
-    },
-    {
-      title: "Incentive Advisory",
-      description:
-        "Expert guidance on SGIP, ITC, and other energy storage incentives",
-      icon: TrendingUp,
-    },
-    {
-      title: "Project Strategy",
-      description:
-        "Strategic planning and roadmap development for successful implementations",
-      icon: Target,
-    },
-    {
-      title: "EPC Introductions",
-      description:
-        "Connect with vetted Engineering, Procurement, and Construction partners",
-      icon: Users,
-    },
-    {
-      title: "Vendor Evaluations",
-      description:
-        "Independent assessment of battery technology providers and solutions",
-      icon: Shield,
-    },
-    {
-      title: "Risk Mitigation",
-      description:
-        "Identify and address potential risks before they impact your project",
-      icon: AlertTriangle,
-    },
-  ];
-
-  const teamMembers = [
-    {
-      name: "John Smith",
-      title: "Managing Partner",
-      bio: "15+ years in energy storage consulting with expertise in utility-scale and C&I projects",
-      image:
-        "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400",
-    },
-    {
-      name: "Sarah Johnson",
-      title: "Senior Consultant",
-      bio: "Former utility executive specializing in energy storage integration and regulatory compliance",
-      image:
-        "https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg?auto=compress&cs=tinysrgb&w=400",
-    },
-    {
-      name: "Michael Chen",
-      title: "Technical Director",
-      bio: "PhD in Electrical Engineering with focus on battery management systems and grid integration",
-      image:
-        "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
-    },
-  ];
-
-  const caseStudies = [
-    {
-      title: "Fortune 500 Manufacturing Facility",
-      description:
-        "Reduced peak demand charges by 40% through strategic BESS deployment",
-      savings: "$2.3M annually",
-      image:
-        "https://images.pexels.com/photos/8246487/pexels-photo-8246487.jpeg?auto=compress&cs=tinysrgb&w=600",
-    },
-    {
-      title: "Multi-Site Retail Chain",
-      description: "Implemented resilient energy storage across 15 locations",
-      savings: "99.9% uptime",
-      image:
-        "https://images.pexels.com/photos/1797428/pexels-photo-1797428.jpeg?auto=compress&cs=tinysrgb&w=600",
-    },
-    {
-      title: "Data Center Critical Load",
-      description:
-        "Designed hybrid UPS-BESS system for mission-critical applications",
-      savings: "50% backup cost reduction",
-      image:
-        "https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=600",
-    },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -223,14 +132,7 @@ function App() {
     }
   };
 
-  const handleSubscribeSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubscribeEmail("");
-    toast.success("Newsletter Subscribed Successfully!");
-  };
-
   return (
-    // <Countdown targetDate="2025-09-09T09:00:00-07:00">
       <div className="min-h-screen bg-white">
         <ToastContainer />
         <PopupModal
@@ -410,7 +312,7 @@ function App() {
               {/* Right Image Section */}
               <div className="relative">
                 <img
-                  src="https://images.pexels.com/photos/52608/pexels-photo-52608.jpeg"
+                  src={imgHome}
                   alt="Energy Storage Consultation"
                   className="rounded-lg shadow-2xl"
                 />
@@ -1118,7 +1020,6 @@ function App() {
           </div>
         </footer>
       </div>
-    // </Countdown>
   );
 }
 
